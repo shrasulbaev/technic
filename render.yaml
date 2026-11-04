@@ -1,7 +1,11 @@
 # Free test server on Render (render.com): New → Blueprint → this repo.
+# Render allows one free database per account, so the database lives outside
+# Render (a free Supabase or Neon Postgres): paste its connection string into
+# DATABASE_URL when Render asks. For Supabase use the session pooler string
+# (port 5432) and add ?sslmode=no-verify.
 # Seeds demo accounts on first start. Free instances sleep after 15 minutes
-# idle (the first open then takes about a minute), and Render's free database
-# is removed after 30 days. For real use, deploy with docker-compose.yml.
+# idle (the first open then takes about a minute). For real use, deploy with
+# docker-compose.yml.
 services:
   - type: web
     name: technic
@@ -11,9 +15,7 @@ services:
     healthCheckPath: /login
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: technic-db
-          property: connectionString
+        sync: false
       - key: SESSION_SECRET
         generateValue: true
       - key: SEED_DEMO
@@ -25,9 +27,3 @@ services:
       - key: ADMIN_PHONES
         value: "+996555000001"
 
-databases:
-  - name: technic-db
-    plan: free
-    region: frankfurt
-    databaseName: technic
-    user: technic
