@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+/* Palette from the approved mockups: warm light ground, graphite ink, construction yellow. */
+:root {
+  --bg: #f5f4ef;
+  --surface: #ffffff;
+  --surface-2: #f0efea;
+  --line: #e3e1da;
+  --text: #15171c;
+  --muted: #5e6470;
+  --accent: #f5b700;
+  --accent-ink: #15171c;
+  --ink: #15171c;
+  --ink-2: #262932;
+  --ink-muted: #b8bcc6;
+  --info: #2463eb;
+  --ok: #1e7a48;
+  --ok-bg: #e3f4ea;
+  --warn-bg: #fff3c4;
+  --warn: #6b4e00;
+  --danger: #b42318;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-muted: var(--ink-muted);
+  --color-info: var(--info);
+  --color-ok: var(--ok);
+  --color-ok-bg: var(--ok-bg);
+  --color-warn: var(--warn);
+  --color-warn-bg: var(--warn-bg);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+.leaflet-container {
+  font-family: inherit;
+  background: #e9e7e0;
+}

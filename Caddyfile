@@ -1,0 +1,7 @@
+{$DOMAIN} {
+	encode gzip
+	# flush_interval keeps live updates (server-sent events) streaming.
+	reverse_proxy app:3000 {
+		flush_interval -1
+	}
+}
